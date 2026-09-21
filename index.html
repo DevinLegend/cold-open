@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1A0C0A" />
+    <meta
+      name="description"
+      content="Cold Open — a local 2D platform fighter on a single flat stage."
+    />
+    <title>Cold Open</title>
+  </head>
+  <body>
+    <div id="app">
+      <p class="sr">
+        Cold Open. Local platform fighter on one flat slab. Player one moves
+        with A and D, jumps with W or Space, aims down with S, attacks with J,
+        grabs with H, and dodges with L. Player two uses the arrow keys,
+        attacks with K, grabs with O, and dodges with P. Hold
+        attack to charge a smash. Percent and knockback launch fighters off
+        the sides or into the pit, which spends a stock. When the match
+        ends, Enter or Space rematches, Escape returns to fighter picks,
+        and Q quits to the title.
+      </p>
+      <div class="stage">
+        <canvas id="game" width="1280" height="720">Cold Open</canvas>
+        <div id="co-hud" class="co-hud" data-hud="match" hidden>
+          <section class="co-hud__panel" data-hud-slot="0" data-damage="0" data-stocks="3" data-fighter="elon">
+            <div class="co-hud__meta">
+              <span class="co-hud__side" data-hud="side">P1</span>
+              <img class="co-hud__plate" data-hud="plate" alt="" />
+              <span class="co-hud__name" data-hud="name">ELON</span>
+            </div>
+            <div class="co-hud__row">
+              <span class="co-hud__percent" data-hud="percent"><span data-hud="digits">0</span><span class="co-hud__mark" aria-hidden="true">%</span></span>
+              <div class="co-hud__stocks" data-hud="stocks"></div>
+            </div>
+          </section>
+          <section class="co-hud__panel" data-hud-slot="1" data-damage="0" data-stocks="3" data-fighter="sam">
+            <div class="co-hud__meta">
+              <span class="co-hud__side" data-hud="side">CPU</span>
+              <img class="co-hud__plate" data-hud="plate" alt="" />
+              <span class="co-hud__name" data-hud="name">SAM</span>
+            </div>
+            <div class="co-hud__row">
+              <span class="co-hud__percent" data-hud="percent"><span data-hud="digits">0</span><span class="co-hud__mark" aria-hidden="true">%</span></span>
+              <div class="co-hud__stocks" data-hud="stocks"></div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
