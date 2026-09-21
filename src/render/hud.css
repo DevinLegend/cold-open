@@ -1,0 +1,189 @@
+/*
+ * Presentation lane. Match HUD: percent and stock tokens.
+ * Position fractions come from HUD_LAYOUT in hud.ts (set on #co-hud each frame).
+ * Colors are the shared palette. Do not recolor fighter bodies here.
+ */
+
+.co-hud {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.co-hud__panel {
+  position: absolute;
+  bottom: var(--co-hud-bottom, 1.2%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.12em;
+  box-sizing: border-box;
+  width: var(--co-hud-width, 22%);
+  padding: 0.28em 0.55em 0.22em;
+  border-style: solid;
+  border-width: 3px 3px 3px 8px;
+  border-color: var(--hud-accent, var(--co-elon-teal));
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--co-blast-void) 86%, transparent);
+}
+
+.co-hud__panel[data-hud-slot='0'] {
+  left: var(--co-hud-inset-x, 1.8%);
+  align-items: flex-start;
+}
+
+.co-hud__panel[data-hud-slot='1'] {
+  right: var(--co-hud-inset-x, 1.8%);
+  align-items: flex-end;
+  border-width: 3px 8px 3px 3px;
+}
+
+.co-hud__panel[data-fighter='elon'] {
+  --hud-accent: var(--co-elon-teal);
+}
+
+.co-hud__panel[data-fighter='sam'] {
+  --hud-accent: var(--co-sam-gold);
+}
+
+.co-hud__panel[data-fighter='dario'] {
+  --hud-accent: var(--co-dario-mint);
+}
+
+.co-hud__panel.is-hit {
+  box-shadow: 0 0 18px color-mix(in srgb, var(--hud-accent) 55%, transparent);
+}
+
+.co-hud__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.55em;
+  margin: 0;
+  font-family: Impact, 'Arial Black', 'Noto Sans', 'Liberation Sans', sans-serif;
+  font-size: clamp(11px, 1.15cqw, 16px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.14em;
+  text-indent: 0.08em;
+  text-transform: uppercase;
+}
+
+.co-hud__panel[data-hud-slot='1'] .co-hud__meta,
+.co-hud__panel[data-hud-slot='1'] .co-hud__row {
+  flex-direction: row-reverse;
+}
+
+.co-hud__side {
+  color: var(--co-rocket-vapor);
+  opacity: 0.78;
+}
+
+.co-hud__name {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.co-hud__plate {
+  display: block;
+  height: var(--co-hud-plate-h, 2.2cqw);
+  width: auto;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.co-hud__row {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  gap: 0.5em;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.co-hud__percent {
+  display: inline-flex;
+  align-items: flex-end;
+  margin: 0;
+  font-family: Impact, 'Arial Black', 'Noto Sans', 'Liberation Sans', sans-serif;
+  font-size: clamp(28px, 4.15cqw, 58px);
+  font-weight: 900;
+  line-height: 0.82;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  transform: scale(var(--hud-pop, 1));
+  transform-origin: left bottom;
+  color: #f4ede4;
+}
+
+.co-hud__panel[data-hud-slot='1'] .co-hud__percent {
+  transform-origin: right bottom;
+}
+
+.co-hud__mark {
+  margin: 0 0 0.08em 0.04em;
+  font-size: 0.58em;
+  letter-spacing: 0;
+}
+
+.co-hud__stocks {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.28em;
+  padding-bottom: 0.12em;
+}
+
+.co-hud__token {
+  display: block;
+  width: 1.45cqw;
+  height: auto;
+  overflow: visible;
+  color: var(--hud-accent);
+}
+
+.co-hud__token-shape {
+  fill: currentColor;
+  stroke: none;
+}
+
+.co-hud__token[data-live='0'] {
+  opacity: 0.38;
+}
+
+.co-hud__token[data-live='0'] .co-hud__token-shape {
+  fill: transparent;
+  stroke: currentColor;
+  stroke-width: 1.6;
+}
+
+.co-hud__token[data-spent-flash='1'] {
+  animation: co-stock-drop 0.42s ease-out;
+}
+
+@keyframes co-stock-drop {
+  0% {
+    transform: translateY(-3px) scale(1.35);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.38;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .co-hud__percent {
+    transform: none;
+  }
+
+  .co-hud__token[data-spent-flash='1'] {
+    animation: none;
+  }
+}

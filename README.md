@@ -23,7 +23,7 @@ grok.me Build Mode should use the **`publish/`** directory.
 npm run build
 ```
 
-Vite writes the playable site to `publish/` (`build.outDir` in `vite.config.ts`). `publish/` is generated and gitignored.
+Vite writes the playable site to `publish/` (`build.outDir` in `vite.config.ts`). Entry file: `publish/index.html`. `publish/` is generated and gitignored.
 
 Preview that export locally:
 

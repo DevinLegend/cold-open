@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0B0A12" />
+    <title>Cold Open — fighter readability</title>
+  </head>
+  <body class="lookdev">
+    <main>
+      <p class="kicker">Cold Open · fighter contrast</p>
+      <h1>Stage-facing readability</h1>
+      <p class="lede">
+        Elon, Sam, and Dario on the live slab, painted with the one-pager sky
+        and rust. Elon, Sam, and Dario use their kits. Sam is gold
+        <code>#e8b84a</code> on navy <code>#1c2a4a</code>.
+        Zoom is 1, the same as the rest camera. No photos, no wordmarks.
+      </p>
+
+      <div class="pose-row" role="toolbar" aria-label="Pose on the stage frame">
+        <button type="button" data-pose="idle" aria-pressed="true">1 Idle</button>
+        <button type="button" data-pose="walk" aria-pressed="false">2 Walk</button>
+        <button type="button" data-pose="jump" aria-pressed="false">3 Jump</button>
+        <button type="button" data-pose="windup" aria-pressed="false">4 Wind-up</button>
+        <button type="button" data-pose="aerial" aria-pressed="false">5 Aerial</button>
+        <button type="button" data-pose="tumble" aria-pressed="false">6 KO tumble</button>
+        <button type="button" data-pose="cycle" aria-pressed="false">Cycle</button>
+      </div>
+
+      <canvas id="stage" width="1280" height="720">Slab contrast frame</canvas>
+      <p class="caption" id="stage-caption"></p>
+
+      <h2>One sixth of the frame</h2>
+      <p class="lede">
+        The sheet draws Elon’s hurtbox at 120px, one sixth of 720. The stage
+        frame above stays at the live size so the slab width does not change.
+      </p>
+      <canvas id="sheet" width="1280" height="640">Pose sheet</canvas>
+
+      <h2>Checklist</h2>
+      <ul class="checks">
+        <li>
+          <strong>Idle.</strong> Elon is the tall narrow kit with the white tee. Sam is the broad navy blazer, short hair dome, open collar. Dario is the round slate kit, glasses wider than the skull.
+        </li>
+        <li>
+          <strong>Walk.</strong> Elon, Sam, and Dario step in their kits. Sam keeps the broad shoulder shelf.
+        </li>
+        <li>
+          <strong>Jump.</strong> Feet leave the rust. Elon stays a vertical kit pose. Dario stays compact. Sam leaves as the same broad taper.
+        </li>
+        <li>
+          <strong>Wind-up.</strong> Forward smash, still in startup. Elon chambers. Dario’s palms gather. Sam chambers the horizontal close.
+        </li>
+        <li>
+          <strong>Aerial.</strong> Forward aerial in its active frames, off the deck.
+        </li>
+        <li>
+          <strong>KO tumble.</strong> Hitstun with the KO hold. Elon, Sam, and Dario use their tumble poses.
+        </li>
+        <li>
+          <strong>Nameplates.</strong> A world billboard sits above each head and scales with the view. The same plate repeats beside 0% along the bottom, at the HUD size. Plate paint and CSS are unchanged.
+        </li>
+      </ul>
+
+      <h2>Notes for Iris and Miles</h2>
+      <p class="lede">
+        Full write-up is in <code>src/fighters/READABILITY.md</code>. The
+        collision box, camera, sky, rockets, and combat numbers are unchanged.
+        The only live paint change is the standing surface: top
+        <code>#8B4513</code>, face <code>#A0522D</code>, lip
+        <code>#3D2314</code>.
+      </p>
+
+      <p class="back"><a href="./index.html">Back to the match</a></p>
+    </main>
+    <script type="module" src="/src/fighters/lookdev.ts"></script>
+  </body>
+</html>

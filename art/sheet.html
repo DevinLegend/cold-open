@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cold Open — nameplate kit</title>
+    <link rel="stylesheet" href="./nameplates.css" />
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        color: var(--co-blast-void);
+        font-family: "Liberation Sans", "Segoe UI", sans-serif;
+        background: var(--co-ground-mid);
+      }
+      .stage {
+        display: grid;
+        grid-template-columns: 22px minmax(0, 1fr) 22px;
+        min-height: 100vh;
+        background: linear-gradient(var(--co-sky-top), var(--co-sky-bottom));
+      }
+      .col {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+      }
+      .rim-cyan {
+        background:
+          linear-gradient(var(--co-blast-cyan-rim), var(--co-blast-cyan-rim)) right / 5px 100% no-repeat,
+          var(--co-blast-void);
+      }
+      .rim-magenta {
+        background:
+          linear-gradient(var(--co-blast-magenta-rim), var(--co-blast-magenta-rim)) left / 5px 100% no-repeat,
+          var(--co-blast-void);
+      }
+      main {
+        flex: 1;
+        padding: 28px 22px 48px;
+      }
+      h1 {
+        margin: 0;
+        font-size: clamp(28px, 4vw, 44px);
+        letter-spacing: 0.04em;
+        line-height: 1;
+      }
+      .lede {
+        max-width: 38rem;
+        margin: 10px 0 0;
+        font-size: 16px;
+        line-height: 1.45;
+      }
+      h2 {
+        margin: 28px 0 12px;
+        font-size: 13px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px 22px;
+        align-items: center;
+      }
+      .swatches {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px 28px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .swatches li {
+        display: grid;
+        grid-template-columns: 72px 22px;
+        grid-template-rows: 36px auto;
+        column-gap: 6px;
+        align-items: end;
+      }
+      .mass, .pip {
+        display: block;
+        border: 2px solid var(--co-blast-void);
+      }
+      .mass { grid-row: 1; grid-column: 1; height: 36px; }
+      .pip { grid-row: 1; grid-column: 2; height: 16px; align-self: end; }
+      .swatches span:last-child {
+        grid-column: 1 / -1;
+        margin-top: 6px;
+        font-size: 13px;
+        font-weight: 700;
+      }
+      .elon-mass { background: var(--co-elon-charcoal); }
+      .elon-pip { background: var(--co-elon-teal); }
+      .sam-mass { background: var(--co-sam-navy); }
+      .sam-pip { background: var(--co-sam-gold); }
+      .dario-mass { background: var(--co-dario-slate); }
+      .dario-pip { background: var(--co-dario-mint); }
+      .ground {
+        padding: 14px 22px 28px;
+        background: var(--co-ground-mid);
+        box-shadow:
+          0 -8px 0 var(--co-ground-lip),
+          0 -26px 0 var(--co-ground-top),
+          0 -48px 0 var(--co-horizon);
+      }
+      .ground p {
+        margin: 0;
+        max-width: 40rem;
+        color: #f2f4f8;
+        font-size: 14px;
+        line-height: 1.45;
+      }
+      @media (max-width: 640px) {
+        .stage { grid-template-columns: 12px minmax(0, 1fr) 12px; }
+        main { padding: 20px 12px 40px; }
+        .ground { padding: 12px 12px 24px; }
+        .co-nameplate { font-size: 22px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stage">
+      <div class="rim-cyan" aria-hidden="true"></div>
+      <div class="col">
+      <main>
+        <h1>Nameplates</h1>
+        <p class="lede">
+          Arcade labels for the flat stage. Teal on charcoal, gold on navy, mint on slate.
+          The sky behind them is the dusty gradient these accents have to survive.
+        </p>
+
+        <h2>Text chips</h2>
+        <div class="row">
+          <span class="co-nameplate co-nameplate--elon">ELON</span>
+          <span class="co-nameplate co-nameplate--sam">SAM</span>
+          <span class="co-nameplate co-nameplate--dario">DARIO</span>
+        </div>
+
+        <h2>Pixel plates</h2>
+        <div class="row">
+          <img class="co-plate" src="./nameplates/elon.svg" alt="ELON" />
+          <img class="co-plate" src="./nameplates/sam.svg" alt="SAM" />
+          <img class="co-plate" src="./nameplates/dario.svg" alt="DARIO" />
+        </div>
+
+        <h2>Body, then accent</h2>
+        <ul class="swatches">
+          <li>
+            <i class="mass elon-mass"></i>
+            <i class="pip elon-pip"></i>
+            <span>ELON charcoal, teal pip</span>
+          </li>
+          <li>
+            <i class="mass sam-mass"></i>
+            <i class="pip sam-pip"></i>
+            <span>SAM navy, gold pip</span>
+          </li>
+          <li>
+            <i class="mass dario-mass"></i>
+            <i class="pip dario-pip"></i>
+            <span>DARIO slate body, mint pip only</span>
+          </li>
+        </ul>
+      </main>
+      <footer class="ground">
+        <p>
+          Rust ground, dark lip, horizon band. Blast void sits at the side edges with a cyan rim and a magenta rim — edge light, not a fighter color. No photos, no corporation marks, no console-fighter assets.
+        </p>
+      </footer>
+      </div>
+      <div class="rim-magenta" aria-hidden="true"></div>
+    </div>
+  </body>
+</html>
