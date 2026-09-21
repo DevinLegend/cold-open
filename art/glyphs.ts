@@ -1,4 +1,4 @@
-// Art lane. 5x7 arcade letterforms for the nameplate kit.
+// Art lane. 5×7 arcade letterforms for the nameplate kit.
 // `#` is ink. Names only — no corporation wordmarks.
 
 export const GLYPH_COLS = 5;

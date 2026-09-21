@@ -1,0 +1,36 @@
+/*
+ * Art lane. CSS mirror of art/palette.ts.
+ * Hexes must match that module. The TypeScript file is the source of truth.
+ * Blast cyan/magenta are edge rims only — not fills, not fighter identity.
+ * DARIO mint is an accent. The slate body stays dominant.
+ */
+
+:root {
+  --co-ground-top: #8B4513;
+  --co-ground-mid: #A0522D;
+  --co-ground-lip: #3D2314;
+  --co-sky-top: #C47A6A;
+  --co-sky-bottom: #D4A574;
+  --co-horizon: #9B6B7A;
+  --co-blast-void: #0B0A12;
+  --co-blast-cyan-rim: #3DE0FF;
+  --co-blast-magenta-rim: #FF3D9A;
+  --co-rocket-vapor: #E8DCC8;
+  --co-rocket-ember: #FF6B35;
+
+  --co-elon-charcoal: #1a1f2a;
+  --co-elon-teal: #2ee6c5;
+  --co-elon-tee: #f2f4f8;
+  --co-elon-hair: #2b241c;
+
+  --co-sam-navy: #1c2a4a;
+  --co-sam-gold: #e8b84a;
+  --co-sam-shirt: #d8e0ef;
+  --co-sam-hair: #c4a882;
+
+  --co-dario-slate: #3a4558;
+  --co-dario-mint: #7dffb3;
+  --co-dario-cream: #efe8dc;
+  --co-dario-hair: #5a4638;
+  --co-dario-glasses: #111318;
+}

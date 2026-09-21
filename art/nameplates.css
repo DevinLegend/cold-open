@@ -1,0 +1,64 @@
+/*
+ * Art lane. Arcade nameplate kit.
+ * Labels are ELON, SAM, and DARIO. No corporation wordmarks.
+ *
+ * Text chip (live type):
+ *   <span class="co-nameplate co-nameplate--elon">ELON</span>
+ *
+ * Pixel plate (the SVG art). Sizes match NAMEPLATE_SIZE in nameplates.ts
+ *   ELON 224×88, SAM 178×88, DARIO 270×88.
+ *   <img class="co-plate" src="nameplates/elon.svg" alt="ELON" />
+ */
+
+@import "./palette.css";
+
+.co-nameplate {
+  --co-plate: var(--co-blast-void);
+  --co-plate-ink: var(--co-elon-tee);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: 48px;
+  margin: 0;
+  padding: 8px 16px 7px 14px;
+  border-style: solid;
+  border-width: 4px 4px 4px 12px;
+  border-color: var(--co-plate-ink);
+  border-radius: 2px;
+  background: var(--co-plate);
+  color: var(--co-plate-ink);
+  font-family: Impact, "Arial Black", "Noto Sans", "Liberation Sans", sans-serif;
+  font-weight: 900;
+  font-size: 28px;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-indent: 0.16em;
+  text-transform: uppercase;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: none;
+  box-shadow: 6px 6px 0 var(--co-blast-void);
+}
+
+.co-nameplate--elon {
+  --co-plate: var(--co-elon-charcoal);
+  --co-plate-ink: var(--co-elon-teal);
+}
+
+.co-nameplate--sam {
+  --co-plate: var(--co-sam-navy);
+  --co-plate-ink: var(--co-sam-gold);
+}
+
+.co-nameplate--dario {
+  --co-plate: var(--co-dario-slate);
+  --co-plate-ink: var(--co-dario-mint);
+}
+
+.co-plate {
+  display: block;
+  height: 88px;
+  width: auto;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
