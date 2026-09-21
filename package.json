@@ -1,4 +1,17 @@
 {
   "name": "cold-open",
-  "private": true
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Cold Open — browser platform-fighter stub. Static export: publish/",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "node --experimental-strip-types tests/sim.test.ts && node --experimental-strip-types tests/elon-art.test.ts && node --experimental-strip-types tests/nameplate.test.ts && node --experimental-strip-types tests/rules.test.ts && node --experimental-strip-types tests/readability.test.ts && node --experimental-strip-types tests/hud.test.ts && node --experimental-strip-types tests/camera.test.ts && node --experimental-strip-types tests/results.test.ts && node --experimental-strip-types tests/sam-art.test.ts"
+  },
+  "devDependencies": {
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0"
+  }
 }
